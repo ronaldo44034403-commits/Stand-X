@@ -1,0 +1,226 @@
+[gd_scene load_steps=3 format=3 uid="uid://mobile_hud_scene_v1"]
+
+[ext_resource type="Script" path="res://scripts/ui/mobile_hud.gd" id="1_hud"]
+[ext_resource type="Script" path="res://scripts/ui/virtual_joystick.gd" id="2_joy"]
+
+[node name="MobileHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="MoveJoystick" type="Control" parent="."]
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -260.0
+offset_right = 270.0
+offset_bottom = -10.0
+script = ExtResource("2_joy")
+
+[node name="Base" type="ColorRect" parent="MoveJoystick"]
+custom_minimum_size = Vector2(200, 200)
+size = Vector2(200, 200)
+color = Color(1, 1, 1, 0.08)
+
+[node name="Knob" type="ColorRect" parent="MoveJoystick"]
+custom_minimum_size = Vector2(80, 80)
+size = Vector2(80, 80)
+color = Color(1, 1, 1, 0.35)
+
+[node name="LookJoystick" type="Control" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -260.0
+offset_right = -200.0
+offset_bottom = -10.0
+is_look_joystick = true
+script = ExtResource("2_joy")
+
+[node name="Base" type="ColorRect" parent="LookJoystick"]
+custom_minimum_size = Vector2(200, 200)
+size = Vector2(200, 200)
+color = Color(1, 1, 1, 0.08)
+
+[node name="Knob" type="ColorRect" parent="LookJoystick"]
+custom_minimum_size = Vector2(80, 80)
+size = Vector2(80, 80)
+color = Color(1, 1, 1, 0.35)
+
+[node name="FireButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -200.0
+offset_right = -10.0
+offset_bottom = -10.0
+text = "FIRE"
+theme_override_font_sizes/font_size = 28
+
+[node name="JumpButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -460.0
+offset_top = -120.0
+offset_right = -340.0
+offset_bottom = -10.0
+text = "JUMP"
+theme_override_font_sizes/font_size = 20
+
+[node name="ReloadButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -80.0
+offset_right = -200.0
+offset_bottom = -10.0
+text = "R"
+theme_override_font_sizes/font_size = 22
+
+[node name="HPBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -310.0
+offset_right = 280.0
+offset_bottom = -270.0
+max_value = 100.0
+value = 100.0
+
+[node name="HPLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -268.0
+offset_right = 200.0
+offset_bottom = -240.0
+text = "100 HP"
+theme_override_font_sizes/font_size = 22
+
+[node name="AmmoLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -240.0
+offset_right = -10.0
+offset_bottom = -210.0
+text = "30 / 90"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="Crosshair" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterDot" type="ColorRect" parent="Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+color = Color(1, 1, 1, 0.9)
+
+[node name="LineTop" type="ColorRect" parent="Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -18.0
+offset_right = 1.5
+offset_bottom = -6.0
+color = Color(1, 1, 1, 0.85)
+
+[node name="LineBottom" type="ColorRect" parent="Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = 6.0
+offset_right = 1.5
+offset_bottom = 18.0
+color = Color(1, 1, 1, 0.85)
+
+[node name="LineLeft" type="ColorRect" parent="Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -1.5
+offset_right = -6.0
+offset_bottom = 1.5
+color = Color(1, 1, 1, 0.85)
+
+[node name="LineRight" type="ColorRect" parent="Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -1.5
+offset_right = 18.0
+offset_bottom = 1.5
+color = Color(1, 1, 1, 0.85)
+
+[node name="KillFeedContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -180.0
+offset_top = 60.0
+offset_right = 180.0
+offset_bottom = 280.0
+
+[node name="DeathScreen" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+modulate = Color(1, 0.05, 0.05, 0.75)
+
+[node name="DeathLabel" type="Label" parent="DeathScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "ТЫ УБИТ
+Возрождение через 3с..."
+theme_override_font_sizes/font_size = 52
